@@ -3,6 +3,7 @@ import User from "./User";
 import UserClasss from "./UserClass";
 
 class About extends Component {
+    
     constructor(props) {
         super(props);
         this.state = {
@@ -14,6 +15,7 @@ class About extends Component {
         console.log('Parent componentDidMount');
     }
     render() {
+             
         console.log("Parent render");
         return (<div>
             <h1>About</h1>
