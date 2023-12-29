@@ -15,7 +15,10 @@ const Header = () => {
                     <li><Link to="/about">About US</Link></li>
                     <li><Link to="/contact">Contact Us</Link></li>
                     <li>Cart</li>
-                    <button onClick={() => setBtnName("Logout now")}>{btnName}</button>
+                    <button onClick={() => {
+                        const n = btnName === 'Login' ? 'Logout': 'Login';
+                        setBtnName(n);
+                    }}>{btnName}</button>
 
                 </ul>
             </div>
