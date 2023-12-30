@@ -116,8 +116,19 @@ npx parcel build index.html -- For prod build
     - and useEffect(()=>{},[stateVar]) this will take care of stateVar watch and render every time this stateVar updates..
     -- And componentWillUnmount() is replaced with useEffect(()=>{
         //Code to invoke API
-        return {
+        return () => {
             // this will be executed while component unmount
-        }
-    })
+        };
+    }, []);
+
+# EP -09 - custom hooks, chunking/ dynamic bundling/code splitting to make your app into smaller chunks.
+
+- custom hooks helps sharing info across components
+- We can have customHook invoked from any component, it is like a utility function - will help to avoid code duplication
+- Dynamic Bundling - will help in bundling the code using lazy and import utils..
+example instead of loading Component if we do lazy loading as below:
+const Grocery = lazy(() => import('SomeComponent'));
+-- So this will take care of moving the component code into it's file, instead of having in one single file.
+-- While doing this lazy loading what happens is as React is quicker in rendering it is expected to have the relevant js file available, but since it is loading by that time it will throw error. So we need to use <Suspense> component wrapped in our component to tell React to wait for loading..
+
 

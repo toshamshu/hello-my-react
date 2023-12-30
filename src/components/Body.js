@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { RESTAURANTS_LIST_URL } from "./constants";
+import useOnlineStatus from "../utils/useOnlineStatus";
 const Body = () => {
     //const [listOfRest, setListOfRest] = useState(restList); -- Instead of mock data use below
     const [listOfRest, setListOfRest] = useState([]);
@@ -27,7 +28,8 @@ const Body = () => {
         setListOfRest(onlyRestaurantsCard[0].card.card.gridElements.infoWithStyle.restaurants);
         setFilteredRest(onlyRestaurantsCard[0].card?.card?.gridElements?.infoWithStyle?.restaurants);    
     };
-    
+    const onlineStatus = useOnlineStatus();
+    if(onlineStatus === false) return <h1>Please check your internet connection !!</h1>
     return listOfRest.length === 0 ? (<Shimmer />) : (
         <div className="body">
             <div className="filter-container">
