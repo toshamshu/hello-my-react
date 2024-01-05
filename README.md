@@ -131,4 +131,37 @@ const Grocery = lazy(() => import('SomeComponent'));
 -- So this will take care of moving the component code into it's file, instead of having in one single file.
 -- While doing this lazy loading what happens is as React is quicker in rendering it is expected to have the relevant js file available, but since it is loading by that time it will throw error. So we need to use <Suspense> component wrapped in our component to tell React to wait for loading..
 
+# EP-10 tailwind css applying
+ - This is better as it brings pre build css for all the needs.
+ - tailwind css is light weight because it will bring the css on to page when we use them only..
 
+# EP-11
+ # Higher order components: It is to enhance one component.
+    - These are components which apply some decoration on top of a component.
+    - It will take a component as input and return a component by applying some decoration on top of it.
+    - underlying it is just a JS function
+    - display all items list using "accordian" component -- Based on data which I am seeing I will keep this task on TO-DO
+    
+    -- Now on accordian open only one and close others - when open clicked others should be closed.
+     -- So for this use React's lifting state up feature.. you need to use controlled component
+    -- Props drilling:
+        - 
+    -- React context: This is similar to global state where you can use data across all components.
+    - For example: loggedInUser we want to show in multiple places, we can leverage context
+    - e.g: const UserContext = createContext({loggedInUser: 'Default'});
+    - e.g: to fetch user context in any component:
+        - const {loggedInUser} = useContext(UserContext);
+    - e.g: fetch loggedInUser in class based component:
+    - <UserContext.Consumer> {(data) => console.log(data)}</UserContext.Consumer>
+    - So in short with class based components context can be fetched with a component called <b>Consumer</b>
+    - And accessing within functional component is using useContext hook.
+    - And to update with a different value for the context we ned to wrap around <UserContext.Provider> where ever the changed value needs to be updated.    
+    - e.g: <UserContext.Provider value={{loggedInUser: 'SomeOtherValue'}}> 
+                //Components tags where this updated value needs to be reflected.
+           </UserContext.Provider>
+     
+   # TO-DO parts:
+    - Review 33 - 1.33 minutes video for accordian style menu display.. but based on  initial analysis data is changing heavily on the API side.. will re-review again and for now keeping in backlog.
+    - Should follow this and do the challenges : https://react.dev/learn/sharing-state-between-components
+
+    -- ON EP-11 - review last 30 mins again it is on useContext, createContext for sharing data across components.

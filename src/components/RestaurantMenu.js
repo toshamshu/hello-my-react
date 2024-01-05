@@ -11,10 +11,10 @@ const RestaurantMenu = () => {
     
 
     if(restInfo === null) return <Shimmer />;
-    
+    console.log(restInfo.cards);
     const {name, cuisines, costForTwoMessage} = restInfo.cards[0]?.card?.card?.info;
     const {itemCards} = restInfo.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card.card;
-    console.log(itemCards);
+    //console.log(itemCards);
     return (
         <div className="menu">
             <h1>{name}</h1>
